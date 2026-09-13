@@ -12,11 +12,15 @@ class DashboardController extends Controller
         $tasks = $request->user()->tasks();
 
         return view('dashboard', [
-            'total'      => (clone $tasks)->count(),
-            'belum'      => (clone $tasks)->where('status', 'belum')->count(),
-            'dikerjakan' => (clone $tasks)->where('status', 'dikerjakan')->count(),
-            'selesai'    => (clone $tasks)->where('status', 'selesai')->count(),
-            'terlambat'  => (clone $tasks)->where('status', '!=', 'selesai')
+            'total'         => (clone $tasks)->count(),
+            'belum'         => (clone $tasks)->where('status', 'belum')->count(),
+            'dikerjakan'    => (clone $tasks)->where('status', 'dikerjakan')->count(),
+            'selesai'       => (clone $tasks)->where('status', 'selesai')->count(),
+            'terlambat'     => (clone $tasks)->where('status', '!=', 'selesai')
+                ->whereNotNull('due_date')
+                ->whereDate('due_date', '<', now())
+                ->count(),
+            'segeraTenggat' => (clone $tasks)->where('status', '!=', 'selesai')
                 ->whereNotNull('due_date')
                 ->orderBy('due_date')
                 ->take(5)

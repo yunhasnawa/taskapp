@@ -3,7 +3,12 @@
 @section('title', 'Login')
 
 @section('content')
-    <h2 class="h5 mb-3">Masuk</h2>
+
+    <div class="text-center mb-4">
+        <img src="{{ asset('images/logo-polinema.png') }}" alt="Logo Polinema" height="80">
+        <hr class="my-4">
+        <h2 class="h5 mb-3">Masuk</h2>
+    </div>
 
     @if (session('status'))
         <div class="alert alert-success">{{ session('status') }}</div>

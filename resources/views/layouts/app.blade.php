@@ -9,7 +9,11 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="{{ route('dashboard') }}">TaskApp</a>
+{{--        <a class="navbar-brand fw-bold" href="{{ route('dashboard') }}">TaskApp</a>--}}
+        <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="{{ route('dashboard') }}">
+            <img src="{{ asset('images/logo-polinema.png') }}" alt="" height="28">
+            TaskApp
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuUtama">
             <span class="navbar-toggler-icon"></span>
         </button>

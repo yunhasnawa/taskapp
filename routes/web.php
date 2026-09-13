@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('task', [TaskOverviewController::class, 'index'])->name('task.index');
+    Route::get('tasks', [TaskOverviewController::class, 'index'])->name('tasks.index');
     Route::resource('categories', CategoryController::class)->only(['index', 'store', 'update', 'destroy']);
 });
 
